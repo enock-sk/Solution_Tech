@@ -1,0 +1,230 @@
+/* Reset and Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #FFFFFF; /* Kept for other pages */
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar.vibrant-nav {
+    background: #006400;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 1000; /* Ensure navbar stays above carousel */
+}
+.navbar.vibrant-nav .navbar-brand {
+    color: #FFD700;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.navbar.vibrant-nav .nav-link {
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+.navbar.vibrant-nav .nav-link:hover,
+.navbar.vibrant-nav .nav-link:focus {
+    color: #FFD700;
+}
+.navbar.vibrant-nav .nav-link.active {
+    color: #FFD700;
+    border-bottom: 2px solid #FFD700;
+}
+.navbar.vibrant-nav .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 215, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Main Content */
+main {
+    padding-top: 0; /* Remove top padding to close gap */
+}
+
+/* Carousel */
+.carousel {
+    margin-top: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+.carousel-item {
+    height: 60vh;
+    min-height: 300px;
+    position: relative;
+}
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.carousel-caption {
+    background: rgba(0, 100, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 600px;
+    left: 10%;
+    right: auto;
+    text-align: left;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: brightness(1.5);
+}
+
+/* Sections */
+.vibrant-section {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Cards */
+.vibrant-card {
+    border: none;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.vibrant-card:hover {
+    transform: translateY(-5px);
+}
+.vibrant-card .card-title {
+    color: #006400;
+    font-weight: 700;
+}
+.vibrant-card .card-text {
+    color: #333333;
+}
+
+/* Form */
+.vibrant-form {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.vibrant-input {
+    border: 2px solid #006400;
+    border-radius: 5px;
+    padding: 0.75rem;
+    transition: border-color 0.3s ease;
+}
+.vibrant-input:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    outline: none;
+}
+.btn-warning {
+    background: #FFD700;
+    border: none;
+    color: #006400;
+    font-weight: 600;
+    padding: 0.75rem;
+}
+
+/* Footer */
+.vibrant-footer {
+    background: #006400;
+    color: #FFFFFF;
+    padding: 2rem 0;
+}
+.vibrant-footer h5 {
+    color: #FFD700;
+    font-weight: 600;
+}
+.vibrant-footer a {
+    color: #FFFFFF;
+    transition: color 0.3s ease;
+}
+.vibrant-footer a:hover {
+    color: #FFD700;
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #006400;
+    color: #FFD700;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+    transition: opacity 0.3s ease;
+}
+.back-to-top.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Animations */
+.animate-box {
+    animation: slideUp 0.6s ease-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar.vibrant-nav {
+        padding: 0.75rem;
+    }
+    .navbar.vibrant-nav .navbar-brand {
+        font-size: 1.25rem;
+    }
+    .navbar.vibrant-nav .nav-link {
+        padding: 0.5rem;
+    }
+    .carousel-item {
+        height: 50vh;
+    }
+    .carousel-caption {
+        padding: 1rem;
+        font-size: 0.9rem;
+        max-width: 90%;
+        left: 5%;
+    }
+    .vibrant-section {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    .vibrant-card {
+        margin-bottom: 1rem;
+    }
+    .vibrant-form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item {
+        height: 40vh;
+    }
+    .carousel-caption h1 {
+        font-size: 1.5rem;
+    }
+    .carousel-caption p {
+        font-size: 0.8rem;
+    }
+    .vibrant-footer .col-md-4 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
