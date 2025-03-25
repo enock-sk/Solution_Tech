@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 import dj_database_url
 from pathlib import Path
-from dotenv import load_dotenv
-load_dotenv()  # This will load the variables from the .env file
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k@pt#g(pk5ebve5uek*^pv@563*rl@r=hv*su!1&kq0d$a8hjl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -52,11 +49,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.staticfiles.middleware.StaticFilesMiddleware'
-    'django.contrib.staticfiles.middleware'
-
 ]
 
 ROOT_URLCONF = 'enotech_website.urls'
@@ -84,7 +77,10 @@ WSGI_APPLICATION = 'enotech_website.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -122,9 +118,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 import os
-STATIC_URL = '/static/'  # URL prefix for static files (likely already set)
-STATICFILES_DIRS = [BASE_DIR / "static"]  # Where your static files live (e.g., enotech_website/static/)
-STATIC_ROOT = BASE_DIR / "staticfiles"
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, 'static'),
+]
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
